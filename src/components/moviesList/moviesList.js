@@ -1,16 +1,22 @@
-import React from 'react';
+import React,  { useState, useEffect } from 'react';
 import GetMovies from '../../services/movies-service';
 
 const MoviesList = () => {
-    const movies = new GetMovies().getSearchingList('Harry');
-    console.log(movies);
+    const [list, setList] = useState([]);
+    useEffect(() => {
+        new GetMovies().getSearchList('Harry').then((res) => setList(oldList => {
+            return res;
+        }))
+        console.log(list)
+    }, [])
+
+
+
     return (
         <ul>
-            <li>11111</li>
-            <li>Movie</li>
-            <li>Movie</li>
-            <li>Movie</li>
-            <li>Movie</li>
+            {list.map((mov) => {
+                return <li>{mov.original_title}</li> }
+            )}
         </ul>
     );
 };
