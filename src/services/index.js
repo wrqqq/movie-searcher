@@ -1,3 +1,3 @@
-import MoviesService from './getMovies';
+import GetMovies from './movies-service';
 
-export default MoviesService;
+export default GetMovies;
