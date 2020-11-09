@@ -1,11 +1,12 @@
 import React from 'react'
+import {useParams} from 'react-router-dom';
 
-export default function MovieDetails() {
+export default function MovieDetails(props) {
+    const {id} = useParams();
+    const {titleName} = props;
     return (
         <div>
-            <span>Name</span>
-            <img src="" />
-            <span>Date</span>
+           {id}
         </div>
     )
 }
