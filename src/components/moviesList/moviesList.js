@@ -6,10 +6,8 @@ const MoviesList = () => {
     const [list, setList] = useState([]);
     useEffect(() => {
         new GetMovies().getSearchList('Harry').then((res) => setList(oldList => {
-            console.log(res)
             return res;
         }))
-        console.log(list)
     }, [])
 
 
@@ -17,7 +15,7 @@ const MoviesList = () => {
     return (
         <ul>
             {list.map((mov) => {
-                return <li key={mov.id} ><Link to={`/movies/:${mov.id}`}>{mov.original_title}</Link></li> }
+                return <li key={mov.id} ><Link to={`/movies/${mov.id}`}>{mov.original_title}</Link></li> }
             )}
         </ul>
     );
